@@ -76,3 +76,28 @@ def eliminar_mantenimiento():
     finally:
         cursor.close()
         conn.close()
+
+def menu_mantenimientos():
+    while True:
+        print("""
+        --- CRUD Mantenimientos ---
+        1. Crear mantenimiento
+        2. Listar mantenimientos
+        3. Modificar mantenimiento
+        4. Eliminar mantenimiento
+        5. Volver
+        """)
+        opcion = input("Elige una opción: ")
+        if opcion == "1":
+            crear_mantenimiento()
+        elif opcion == "2":
+            listar_mantenimientos()
+        elif opcion == "3":
+            modificar_mantenimiento()
+        elif opcion == "4":
+            eliminar_mantenimiento()
+        elif opcion == "5":
+            break
+        else:
+            print("Opción inválida.")
+

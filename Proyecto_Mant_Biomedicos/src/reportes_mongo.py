@@ -52,4 +52,29 @@ def eliminar_reporte():
     else:
         print("No se encontró el reporte.")
 
+def menu_reportes_tecnicos():
+    while True:
+        print("""
+        --- Gestión de Reportes Técnicos (MongoDB) ---
+        1. Crear reporte técnico
+        2. Listar todos los reportes
+        3. Buscar reportes por equipo
+        4. Eliminar reporte técnico
+        5. Volver
+        """)
+        opcion = input("Elige una opción: ")
+        if opcion == "1":
+            crear_reporte_tecnico()
+        elif opcion == "2":
+            listar_reportes()
+        elif opcion == "3":
+            buscar_reportes_por_equipo()
+        elif opcion == "4":
+            eliminar_reporte()
+        elif opcion == "5":
+            break
+        else:
+            print("Opción inválida.")
+
+
 # Puedes agregar modificar_reporte si quieres.

@@ -67,3 +67,28 @@ def eliminar_tecnico():
     finally:
         cursor.close()
         conn.close()
+
+def menu_tecnicos():
+    while True:
+        print("""
+        --- CRUD Técnicos ---
+        1. Crear técnico
+        2. Listar técnicos
+        3. Modificar técnico
+        4. Eliminar técnico
+        5. Volver
+        """)
+        opcion = input("Elige una opción: ")
+        if opcion == "1":
+            crear_tecnico()
+        elif opcion == "2":
+            listar_tecnicos()
+        elif opcion == "3":
+            modificar_tecnico()
+        elif opcion == "4":
+            eliminar_tecnico()
+        elif opcion == "5":
+            break
+        else:
+            print("Opción inválida.")
+

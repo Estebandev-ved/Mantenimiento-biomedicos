@@ -3,19 +3,14 @@ import mysql.connector
 def conectar_mysql():
     try:
         conexion = mysql.connector.connect(
-            host="localhost",
-            user="informatica1",
-            password="info2025_2",
-            database="PF_Informatica1"
+            host="localhost",             # O "127.0.0.1"
+            port=3306,                    # Cambia si tienes otro puerto configurado
+            user="root",          # Usuario de tu base de datos
+            password= "",          # Contraseña
+            database="PF_Informatica1"    # Nombre de la base de datos
         )
-        print("Conexión a MySQL exitosa")
         return conexion
     except mysql.connector.Error as e:
         print(f"Error de conexión a MySQL: {e}")
         return None
 
-# Ejemplo de uso
-if __name__ == "__main__":
-    conn = conectar_mysql()
-    if conn:
-        conn.close()

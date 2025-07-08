@@ -1,3 +1,4 @@
+-- Active: 1751933188678@@127.0.0.1@3306@pf_informatica1
 CREATE DATABASE IF NOT EXISTS PF_Informatica1;
 USE PF_Informatica1;
 

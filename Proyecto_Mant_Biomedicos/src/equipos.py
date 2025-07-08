@@ -78,3 +78,27 @@ def eliminar_equipo():
     finally:
         cursor.close()
         conn.close()
+
+def menu_equipos():
+    while True:
+        print("""
+        --- CRUD Equipos ---
+        1. Crear equipo
+        2. Listar equipos
+        3. Modificar equipo
+        4. Eliminar equipo
+        5. Volver
+        """)
+        opcion = input("Elige una opción: ")
+        if opcion == "1":
+            crear_equipo()
+        elif opcion == "2":
+            listar_equipos()
+        elif opcion == "3":
+            modificar_equipo()
+        elif opcion == "4":
+            eliminar_equipo()
+        elif opcion == "5":
+            break
+        else:
+            print("Opción inválida.")

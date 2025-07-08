@@ -9,16 +9,12 @@ def cargar_usuarios_json():
 
 def login():
     usuarios = cargar_usuarios_json()
-    print("=== Sistema de Gestión de Equipos Biomédicos ===")
+    print("=== Login ===")
     user = input("Usuario: ")
     pwd = input("Contraseña: ")
-
     for u in usuarios:
         if u["nombre_usuario"] == user and u["password"] == pwd:
             print(f"\nBienvenido, {user}. Rol: {u['rol']}")
             return u["rol"]
     print("Usuario o contraseña incorrectos.")
     return None
-
-if __name__ == "__main__":
-    login()
