@@ -5,7 +5,7 @@ from src.mantenimientos import menu_mantenimientos
 from src.reportes_mongo import menu_reportes_tecnicos
 from src.busqueda import menu_busqueda
 
-def menu_admin():
+def menu_admin(usuario):
     while True:
         print("""
 === Menú Administrador ===
@@ -26,7 +26,7 @@ def menu_admin():
         elif opcion == "3":
             menu_equipos()
         elif opcion == "4":
-            menu_mantenimientos()
+            menu_mantenimientos(usuario)
         elif opcion == "5":
             menu_reportes_tecnicos()
         elif opcion == "6":

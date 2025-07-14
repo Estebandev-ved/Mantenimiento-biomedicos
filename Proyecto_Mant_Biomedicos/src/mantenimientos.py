@@ -99,7 +99,7 @@ def historial_mantenimientos():
     conn.close()
 
 
-def menu_mantenimientos():
+def menu_mantenimientos(usuario):
     while True:
         print("""
         --- CRUD Mantenimientos ---
@@ -111,9 +111,9 @@ def menu_mantenimientos():
         """)
         opcion = input("Elige una opción: ")
         if opcion == "1":
-            crear_mantenimiento()
+            crear_mantenimiento(usuario)   # ✅ le pasas usuario
         elif opcion == "2":
-            listar_mantenimientos()
+            listar_mantenimientos(usuario) # ✅ también le pasas usuario
         elif opcion == "3":
             modificar_mantenimiento()
         elif opcion == "4":
@@ -122,4 +122,3 @@ def menu_mantenimientos():
             break
         else:
             print("Opción inválida.")
-

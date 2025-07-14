@@ -28,14 +28,14 @@ def login():
     for u in usuarios_mysql:
         if u["nombre_usuario"] == user and u["password"] == pwd:
             print(f"\n✅ Bienvenido, {user}. Rol: {u['rol']}")
-            return u["rol"]
+            return {"nombre": user, "rol": u["rol"]}
 
     # Si no está en MySQL, intenta con el archivo JSON
     usuarios_json = cargar_usuarios_json()
     for u in usuarios_json:
         if u["nombre_usuario"] == user and u["password"] == pwd:
             print(f"\n✅ Bienvenido, {user}. Rol: {u['rol']} (Desde JSON)")
-            return u["rol"]
+            return {"nombre": user, "rol": u["rol"]}
 
     print("❌ Usuario o contraseña incorrectos.")
     return None

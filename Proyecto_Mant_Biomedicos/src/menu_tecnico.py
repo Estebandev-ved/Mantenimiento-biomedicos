@@ -1,7 +1,7 @@
 from src.mantenimientos import crear_mantenimiento, listar_mantenimientos
 from src.equipos import ver_equipos_asignados
 
-def menu_tecnico():
+def menu_tecnico(usuario):
     print("=== Menú Técnico ===")
     usuario = input("Ingresa tu nombre de usuario: ")
 

@@ -2,7 +2,7 @@ from src.equipos import listar_equipos
 from src.mantenimientos import historial_mantenimientos
 from src.consultas_mongo import ver_reportes_tecnicos, descargar_manuales, buscar_reporte_por_palabra
 from src.conexion_mysql import conectar_mysql
-def menu_ingeniero():
+def menu_ingeniero(usuario):
     while True:
         print("""
         === Menú Ingeniero Clínico ===

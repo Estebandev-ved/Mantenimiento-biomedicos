@@ -4,13 +4,13 @@ from src.menu_ingeniero import menu_ingeniero
 from src.menu_tecnico import menu_tecnico
 
 def main():
-    rol = login()
-    if rol == "Administrador":
-        menu_admin()
-    elif rol == "Ingeniero":
-        menu_ingeniero()
-    elif rol == "Tecnico":
-        menu_tecnico()
+    usuario = login()  # Cambia 'rol' por 'usuario'
+    if usuario["rol"] == "Administrador":
+        menu_admin(usuario)
+    elif usuario["rol"] == "Ingeniero":
+        menu_ingeniero(usuario)
+    elif usuario["rol"] == "Tecnico":
+        menu_tecnico(usuario)
     else:
         print("Acceso denegado.")
 
