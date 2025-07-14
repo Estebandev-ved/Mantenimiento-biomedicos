@@ -18,6 +18,11 @@ def cargar_manual():
 
     resultado = coleccion.insert_one(manual)
     print("Documento insertado en 'manuales' con _id:", resultado.inserted_id)
+    
+
+    
+    
+
 
 if __name__ == "__main__":
     cargar_manual()

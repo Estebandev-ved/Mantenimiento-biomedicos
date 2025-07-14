@@ -1,3 +1,7 @@
+from src.equipos import listar_equipos
+from src.mantenimientos import historial_mantenimientos
+from src.consultas_mongo import ver_reportes_tecnicos, descargar_manuales, buscar_reporte_por_palabra
+from src.conexion_mysql import conectar_mysql
 def menu_ingeniero():
     while True:
         print("""
@@ -11,15 +15,15 @@ def menu_ingeniero():
         """)
         opcion = input("Elige una opción: ")
         if opcion == "1":
-            print("Funcionalidad en desarrollo")
+            listar_equipos()
         elif opcion == "2":
-            print("Funcionalidad en desarrollo")
+            historial_mantenimientos()
         elif opcion == "3":
-            print("Funcionalidad en desarrollo")
+            ver_reportes_tecnicos()
         elif opcion == "4":
-            print("Funcionalidad en desarrollo")
+            descargar_manuales()
         elif opcion == "5":
-            print("Funcionalidad en desarrollo")
+            buscar_reporte_por_palabra()
         elif opcion == "6":
             print("Sesión cerrada. Hasta luego.")
             break

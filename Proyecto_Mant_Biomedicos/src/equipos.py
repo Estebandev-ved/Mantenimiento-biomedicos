@@ -79,6 +79,31 @@ def eliminar_equipo():
         cursor.close()
         conn.close()
 
+def ver_equipos_asignados(nombre_usuario):
+    conn = conectar_mysql()
+    cursor = conn.cursor()
+
+    query = """
+        SELECT e.equipo_id, e.nombre_equipo, e.tipo, e.marca, e.estado_actual
+        FROM equipos e
+        JOIN mantenimientos m ON e.equipo_id = m.equipo_id
+        JOIN tecnicos t ON m.tecnico_id = t.tecnico_id
+        WHERE t.nombre = %s
+        GROUP BY e.equipo_id
+    """
+    cursor.execute(query, (nombre_usuario,))
+    equipos = cursor.fetchall()
+
+    if not equipos:
+        print("⚠️ No tienes equipos asignados.")
+    else:
+        print("\n🔧 Equipos asignados:")
+        for equipo in equipos:
+            print(f"- ID: {equipo[0]}, Nombre: {equipo[1]}, Tipo: {equipo[2]}, Marca: {equipo[3]}, Estado: {equipo[4]}")
+
+    cursor.close()
+    conn.close()
+
 def menu_equipos():
     while True:
         print("""

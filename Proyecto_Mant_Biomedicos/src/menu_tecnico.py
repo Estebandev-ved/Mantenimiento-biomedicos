@@ -1,28 +1,27 @@
+from src.mantenimientos import crear_mantenimiento, listar_mantenimientos
+from src.equipos import ver_equipos_asignados
+
 def menu_tecnico():
+    print("=== Menú Técnico ===")
+    usuario = input("Ingresa tu nombre de usuario: ")
+
     while True:
-        print("""
-        === Menú Técnico ===
-        1. Ver equipos asignados
-        2. Registrar mantenimiento preventivo
-        3. Registrar mantenimiento correctivo
-        4. Subir reporte técnico
-        5. Consultar reportes anteriores
-        6. Cerrar sesión
-        """)
-        opcion = input("Elige una opción: ")
+        print("\n--- Opciones ---")
+        print("1. Ver equipos asignados")
+        print("2. Registrar mantenimiento")
+        print("3. Ver mantenimientos realizados")
+        print("4. Salir")
+
+        opcion = input("Seleccione una opción: ")
+
         if opcion == "1":
-            print("Funcionalidad en desarrollo")
+            ver_equipos_asignados(usuario)
         elif opcion == "2":
-            print("Funcionalidad en desarrollo")
+            crear_mantenimiento(usuario)
         elif opcion == "3":
-            print("Funcionalidad en desarrollo")
+           listar_mantenimientos(usuario)
         elif opcion == "4":
-            print("Funcionalidad en desarrollo")
-        elif opcion == "5":
-            print("Funcionalidad en desarrollo")
-        elif opcion == "6":
-            print("Sesión cerrada. Hasta luego.")
+            print("👋 Cerrando sesión del técnico...")
             break
         else:
-            print("Opción inválida. Intenta de nuevo.")
-
+            print("❌ Opción inválida.")

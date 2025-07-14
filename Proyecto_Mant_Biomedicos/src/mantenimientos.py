@@ -1,6 +1,6 @@
 from src.conexion_mysql import conectar_mysql
 
-def crear_mantenimiento():
+def crear_mantenimiento(usuario):
     conn = conectar_mysql()
     cursor = conn.cursor()
     equipo_id = input("ID del equipo: ")
@@ -25,7 +25,7 @@ def crear_mantenimiento():
         cursor.close()
         conn.close()
 
-def listar_mantenimientos():
+def listar_mantenimientos(usuario):
     conn = conectar_mysql()
     cursor = conn.cursor()
     cursor.execute("""SELECT mmto_id, equipo_id, tecnico_id, tipo_mmto, fecha_mmto, 
@@ -76,6 +76,28 @@ def eliminar_mantenimiento():
     finally:
         cursor.close()
         conn.close()
+
+def historial_mantenimientos():
+    conn = conectar_mysql()
+    cursor = conn.cursor()
+
+    cursor.execute("""
+        SELECT m.mmto_id, m.fecha_mmto, m.tipo_mmto, m.observaciones,
+               e.nombre_equipo, t.nombre
+        FROM mantenimientos m
+        JOIN equipos e ON m.equipo_id = e.equipo_id
+        JOIN tecnicos t ON m.tecnico_id = t.tecnico_id
+        ORDER BY m.fecha_mmto DESC
+    """)
+    datos = cursor.fetchall()
+
+    print("\n🧾 Historial de mantenimientos:")
+    for row in datos:
+        print(f"- ID: {row[0]}, Fecha: {row[1]}, Tipo: {row[2]}, Observaciones: {row[3]}, Equipo: {row[4]}, Técnico: {row[5]}")
+
+    cursor.close()
+    conn.close()
+
 
 def menu_mantenimientos():
     while True:
