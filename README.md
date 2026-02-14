@@ -82,7 +82,7 @@ python main.py
 Este proyecto fue realizado como entrega final para el curso de **Informática 1** de la **Universidad de Antioquia**. 
 
 **Desarrollado por:**
-- [Tu Nombre/Usuario]
+- Estebandev y mauricio
 
 ---
 *Nota: Este sistema es una versión académica y está diseñado con fines educativos.*
